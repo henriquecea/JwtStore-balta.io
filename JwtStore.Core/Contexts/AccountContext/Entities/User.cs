@@ -11,6 +11,13 @@ public class User : Entity
 
     }
 
+    public User(string name, Email email, Password password)
+    {
+        Name = name;
+        Email = email;
+        Password = password;
+    }
+
     public User(string email, string? password = null)
     {
         Email = email;
