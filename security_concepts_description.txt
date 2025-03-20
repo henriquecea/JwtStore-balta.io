@@ -1,0 +1,77 @@
+
+	1 ) O que é autenticação?
+	
+		- Autenticação é o processo que diz quem você é.
+	
+	
+	2 ) O que é autorização?
+	
+		- Se autenticação diz quem voce é, autorizacao diz o que voce pode fazer.
+		
+		- A autorização não tem necessariamente uma regra.
+		
+	
+	3 ) Autenticação e Autorização em APIs
+	
+		- Todo processo deve rodar no servidor.
+		
+		- APIs nunca ficamos autenticados ou autorizados, a cada req este processo é feito.
+	
+		
+	4 ) Onde armazenar o Token
+	
+		- Session Storage (Front-end)
+		
+		- Local Storage
+			- Até 200mb
+		
+		- Cookies
+			- Muito usado no ASP.NET
+			
+	
+	5 ) O que é JWT (Json Web Token)?
+	
+		- Os Tokens são como chaves de acesso, com informações e uma duração, ou seja, se alguém obter seu Token
+		ele pode 'impersonar' ou fingir que é voce.
+		
+		- É dividido por pontos, para segmentar suas regiões e o mesmo é dividido em três partes principais.
+		
+			- Primeira parte é o Header, que define o algoritmo de encriptação.
+				- O mais comum e recomendado até o momento é o HS256, ele balanceia performance e segurança. Quanta
+				mais alta a encriptação mais processamento ela requer.
+				
+			- Segunda parte é o Payload, que são informações que podemos incluir no Token, com algumas ressalvas.
+			
+			- Terceira parte é uma chave, que só existe no lado do servidor.
+			
+		- Se o Token for gerado com qualquer outra chave, diferente da qual foi gerada, o mesmo é invalidado. Isto
+		é o que torna os Tokens seguros em relações as mudanças.
+		
+		- Não armazene valores sensíveis no Payload.
+		
+		- Uma recomendação e padrão dos JWTs é conter no Payload a informação 'iat' que significa 'Issued At' ou
+		'Gerado em' que nada mais é do que um timestamp da data/hora que o token foi gerado.
+			- Desta forma, podemos criar uma validação para o Token, dizendo que o mesmo só pode existir por X
+			tempo. Assim, se um Token for roubado, ele só vai ser útil durante X dias ou horas, passado isto
+			ele se torna inválido.
+			
+	
+	6 ) Refresh Token
+	
+		- Sempre que gerar um Token para o seu usuário, gere uma chave aleatória junto, encriptada e dado o Token
+		anterior e mais esta nova chave, um novo Token pode ser gerado.
+		
+		- No caso, é interessante gerar este novo Token em um intervalo menor que a expiração do Token principal,
+		desta forma, o usuário sempre mantém a sessão ativa.
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
