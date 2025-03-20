@@ -13,20 +13,20 @@ public class Handler
         _service = service;
     }
 
-    public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
-    {
-        try
-        {
-            var res = Specification.Ensure(request);
+    //public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
+    //{
+    //    try
+    //    {
+    //        var res = Specification.Ensure(request);
 
-            if (!res.IsValid)
-                return new Response("Requisição inválida.", 400, res.Notifications);
-        }
-        catch
-        {
-            return new Response("Não foi possível validar sua req", 500, null);
-        }
+    //        if (!res.IsValid)
+    //            return new Response("Requisição inválida.", 400, res.Notifications);
+    //    }
+    //    catch
+    //    {
+    //        return new Response("Não foi possível validar sua req", 500, null);
+    //    }
 
 
-    }
+    //}
 }
