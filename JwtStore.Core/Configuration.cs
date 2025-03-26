@@ -1,4 +1,6 @@
-﻿public static class Configuration
+﻿namespace JwtStore.Core;
+
+public static class Configuration
 {
     public static SecretsConfiguration Secrets { get; set; } = new();
     public static EmailConfiguration Email { get; set; } = new();

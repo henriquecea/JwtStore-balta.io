@@ -1,4 +1,5 @@
-﻿using JwtStore.Infra.Data;
+﻿using JwtStore.Core;
+using JwtStore.Infra.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -57,5 +58,10 @@ public static class BuilderExtension
                 };
             });
         builder.Services.AddAuthorization();
+    }
+
+    public static void AddMediatR(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(typeof(Configuration).Assembly));
     }
 }
