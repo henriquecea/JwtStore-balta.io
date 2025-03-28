@@ -30,7 +30,11 @@ public class User : Entity
 
     public Password Password { get; private set; } = null!;
 
-    public string Image { get; private set; } = string.Empty; public void UpdatePassword(string plainTextPassword, string code)
+    public string Image { get; private set; } = string.Empty;
+
+    public List<Roles> Roles { get; private set; } = [];
+
+    public void UpdatePassword(string plainTextPassword, string code)
     {
         if (!string.Equals(code.Trim(), Password.ResetCode.Trim(), StringComparison.CurrentCultureIgnoreCase))
             throw new Exception("Código de restauração inválido");

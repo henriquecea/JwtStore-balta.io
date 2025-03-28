@@ -60,7 +60,7 @@ public static class AccountContextExtension
             if (result.Data is null)
                 return Results.Json(result, statusCode: 500);
 
-            //result.Data.Token = JwtExtension.Generate(result.Data);
+            result.Data.Token = JwtExtension.Generate(result.Data);
             return Results.Ok(result);
         });
 
