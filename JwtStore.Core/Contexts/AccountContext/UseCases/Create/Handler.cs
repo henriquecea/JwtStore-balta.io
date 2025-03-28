@@ -87,7 +87,7 @@ public class Handler : IRequestHandler<Request, Response>
 
         try
         {
-            await _service.SendVerificationEmailAsync(user, cancellationToken);
+            //await _service.SendVerificationEmailAsync(user, cancellationToken); // configure SendGrid
         }
         catch
         {

@@ -14,6 +14,6 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapAccountEndpoint();
+app.MapAccountEndpoints();
 
 app.Run();

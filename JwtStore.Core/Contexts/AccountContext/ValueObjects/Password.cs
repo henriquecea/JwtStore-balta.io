@@ -15,7 +15,7 @@ public class Password : ValueObject
 
     public Password(string? text = null)
     {
-        if(string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text))
+        if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text))
             text = PasswordGenerator.Generate();
 
         Hash = PasswordHasher.Hash(text);
@@ -24,4 +24,8 @@ public class Password : ValueObject
     public string Hash { get; } = string.Empty;
 
     public string ResetCode { get; } = Guid.NewGuid().ToString("N")[..8].ToUpper();
+
+    public bool Challenge(string password) =>
+        PasswordHasher.Verify(Hash, password);
+
 }
